@@ -2,7 +2,6 @@ import sun from "../../img/icons/sun.svg";
 import moon from "../../img/icons/moon.svg";
 import './style.css'
 import {NavLink} from "react-router-dom";
-import React from "react";
 
 function Navbar() {
     const activeLink = 'nav-list__link nav-list__link--active'
