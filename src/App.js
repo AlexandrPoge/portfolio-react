@@ -4,16 +4,23 @@ import Footer from "./components/footer/Footer";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Contacts from "./pages/Contacts";
+import {BrowserRouter as Router, Routes,Route} from "react-router-dom";
+import ProjectPage from "./pages/Project";
 
 
 function App() {
   return (
       <div className="App">
+          <Router>
         <Navbar/>
-            {/*<Home/>*/}
-          {/*<Projects/>*/}
-          <Contacts/>
+              <Routes>
+              <Route path="/" element={<Home />}/>
+              <Route path="/projects" element={<Projects />}/>
+              <Route path="/contacts" element={<Contacts />}/>
+              <Route path="/project" element={<ProjectPage />}/>
+              </Routes>
          <Footer/>
+          </Router>
       </div>
   );
 }
