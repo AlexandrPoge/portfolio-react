@@ -27,12 +27,12 @@ function Navbar() {
                             </NavLink>
                         </li>
                         <li className="nav-list__item">
-                            <NavLink className="nav-list__link " to='/Projects'>
+                            <NavLink className={({isActive})=>isActive ? activeLink : normalLink} to='/Projects'>
                                 Projects
                             </NavLink>
                         </li>
                         <li className="nav-list__item">
-                            <NavLink className="nav-list__link " to='/contacts'>
+                            <NavLink className={({isActive})=>isActive ? activeLink : normalLink} to='/contacts'>
                                 Contacts
                             </NavLink>
                     </li>
