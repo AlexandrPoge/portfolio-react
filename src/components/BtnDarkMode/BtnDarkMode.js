@@ -1,23 +1,25 @@
 import sun from "../../img/icons/sun.svg";
 import moon from "../../img/icons/moon.svg";
 import './style.css'
-import {useEffect, useRef} from "react";
+import {useContext, useEffect, useRef} from "react";
 import {useLocalStorage} from '../../utils/UseLocalStorage'
+import {AppContext} from "../../context";
 
 function BtnDarkMode() {
     const [disabled, setDisabled] = useLocalStorage('light');
     const btnRef = useRef(null);
+    const {appRef} = useContext(AppContext);
 
     useEffect(()=>{
         if (disabled === 'dark'){
-            document.body.classList.add('dark');
+            appRef.current.classList.add('dark');
             btnRef.current.classList.add('dark-mode-btn--active');
         } else {
-            document.body.classList.remove('dark');
+           appRef.current.classList.remove('dark');
             btnRef.current.classList.remove('dark-mode-btn--active');
 
         }
-    },[disabled])
+    },[disabled, appRef])
 
     const toggleDarkMode = () => {
         setDisabled((currentValue)=>{

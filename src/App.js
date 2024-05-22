@@ -7,11 +7,15 @@ import Contacts from "./pages/Contacts";
 import {BrowserRouter as Router, Routes,Route} from "react-router-dom";
 import ProjectPage from "./pages/Project";
 import ScrollToTop from "./utils/ScrollToTop";
+import {useRef} from "react";
+import {AppContext} from "./context";
 
 
 function App() {
+    const appRef = useRef();
   return (
-      <div className="App">
+      <AppContext.Provider value={{appRef}}>
+      <div ref={appRef} className="App">
           <Router>
               <ScrollToTop/>
         <Navbar/>
@@ -24,6 +28,7 @@ function App() {
          <Footer/>
           </Router>
       </div>
+      </AppContext.Provider>
   );
 }
 
